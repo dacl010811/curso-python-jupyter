@@ -1,0 +1,2 @@
+
+cadena = input("Ingresa ")
