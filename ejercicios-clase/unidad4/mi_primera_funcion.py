@@ -19,9 +19,7 @@ def sumar(a, b):
     Returns:
         float: Devuelve el resultado de sumar 2 numeros.
     """
-    global iva
-    iva = 0.16
-    return (a+b) * iva
+    return (a+b)
 
 
 def dibujar_tabla_n(numero_tabla, limite):
@@ -40,7 +38,7 @@ if __name__ == "__main__":  # Parte principal del programa : Ejecutor del progra
     resultado = sumar(b=num_1, a=num_2)
     print(f"El resultado de la funcion suma es = {resultado}")
     print(f"Iva global = {iva} ")
-    
+
 
     # Invocar a la funcion dibujar_table  de cualquier numero
     tabla = int(input("Ingresa el numero de la tabla a construir : \n"))
