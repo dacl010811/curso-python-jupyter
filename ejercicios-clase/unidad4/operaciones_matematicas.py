@@ -117,10 +117,10 @@ def menu():
             entrada_usuario = input(
                 "Ingrese los valores a sumar separados por comas: \n")
             lista_numeros = valida_entrada_usuario(entrada_usuario)
-            producto_total = suma_n_numeros(*lista_numeros) if lista_numeros else 0
+            producto_total = suma_n_numeros(
+                *lista_numeros) if lista_numeros else 0
             print(
                 f"El resultado de sumar n = {lista_numeros} es  = {producto_total} ")
-
         elif opcion == 'S' or opcion == 's':
             caracter = input("Estas seguro de salir del programa : y/n \n")
             if caracter == 'y' or caracter == 'Y':
