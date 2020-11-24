@@ -91,16 +91,12 @@ def menu():
         elif opcion == '4':
             pass
         elif opcion == '5':
-            #lista_valores = [1, 2, 3, 4, 5, '6', 1.2, 'Hola']
             entrada_usuario = input(
                 "Ingrese los valores a sumar separados por comas: \n")
-            print(entrada_usuario)    
             lista_numeros = entrada_usuario.split(
                 ',') if len(entrada_usuario) > 0 else []
-            print("L1",lista_numeros)    
             lista_numeros = [elemento.strip(' ') for elemento in lista_numeros] if len(
                 lista_numeros) > 0 else []
-            print("L2",lista_numeros)    
             producto_total = suma_n_numeros(*lista_numeros)
             print(
                 f"El resultado de sumar n = {lista_numeros} es  = {producto_total} ")
