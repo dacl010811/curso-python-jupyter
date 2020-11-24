@@ -2,6 +2,23 @@
 resultado = 0.0  # Variable Global
 
 
+def valida_entrada_usuario(cadena):
+    """Valida la entrada de usuario y devuelve una lista de numeros ingresados por teclado.
+       Controla espacios en blanco
+    Args:
+        cadena (str): Entrada de usuario que representa los numeros.
+    Returns:
+        list: Lista de numeros que fueron extraidos de la entrada de usuario: input()
+    """
+    # Saca una serie de elementos (numeros) desde la cadena.
+    lista_numeros = cadena.split(',') if len(cadena) > 0 else []
+    # Controla los espacios en blanco
+    lista_numeros = [elemento.strip(' ') for elemento in lista_numeros] if len(
+        lista_numeros) > 0 else []
+
+    return lista_numeros if lista_numeros else []
+
+
 def suma(sumando_1, sumando_2):
     """Sumar 2 numeros.
     Args:
@@ -25,6 +42,12 @@ def restar(num1, num2):
 
 
 def suma_n_numeros(*args):
+    """ Funcion que suma n numeros ingresados por teclado.
+    Args:
+        *args  (list) : Lista de los n numeros para realizar la sumatoria.
+    Returns:
+        float: Suma Total de los n numeros.
+    """
     global resultado
 
     if args:  # Verificar elemetos en una lista
@@ -93,11 +116,8 @@ def menu():
         elif opcion == '5':
             entrada_usuario = input(
                 "Ingrese los valores a sumar separados por comas: \n")
-            lista_numeros = entrada_usuario.split(
-                ',') if len(entrada_usuario) > 0 else []
-            lista_numeros = [elemento.strip(' ') for elemento in lista_numeros] if len(
-                lista_numeros) > 0 else []
-            producto_total = suma_n_numeros(*lista_numeros)
+            lista_numeros = valida_entrada_usuario(entrada_usuario)
+            producto_total = suma_n_numeros(*lista_numeros) if lista_numeros else 0
             print(
                 f"El resultado de sumar n = {lista_numeros} es  = {producto_total} ")
 
