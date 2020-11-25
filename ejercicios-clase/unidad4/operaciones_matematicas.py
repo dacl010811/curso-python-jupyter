@@ -60,6 +60,28 @@ def suma_n_numeros(*args):
     return resultado
 
 
+def suma_n_numeros_dic(**kwargs):
+    """ Funcion que suma n numeros ingresados por teclado.
+    Args:
+        *args  (list) : Lista de los n numeros para realizar la sumatoria.
+    Returns:
+        float: Suma Total de los n numeros.
+    """
+    global resultado
+
+    #dd = {'0':1,'1':2,'3':3}
+
+    if kwargs:  # Verificar elemetos en una lista
+        for key in kwargs:
+            dato = kwargs[key]
+            print(f"Elemento : [{key}]: {dato} ")
+            resultado += float(dato)
+    else:
+        print("La lista no tiene elementos")
+
+    return resultado
+
+
 def multiplicar(multiplicando, multiplicador):
     """Multiplica numeros
     Args:
@@ -89,6 +111,7 @@ def menu():
         3.- Multiplicar
         4.- Dividir
         5.- Suma-Ideterminados-Posicion
+        6.- Suma-Ideterminados-Nombre
         S.- Salir 
         """)
         opcion = input("Seleccion la operacion a realizar \n")
@@ -121,6 +144,17 @@ def menu():
                 *lista_numeros) if lista_numeros else 0
             print(
                 f"El resultado de sumar n = {lista_numeros} es  = {producto_total} ")
+        elif opcion == '6':
+            entrada_usuario = input(
+                "Ingrese los valores a sumar separados por comas: \n")  # {'2':200}
+            lista_numeros = valida_entrada_usuario(
+                entrada_usuario)              # lista = [1,2,3,4,5]
+            mi_diccionario = dict((str(k), float(d)) for k, d in enumerate(lista_numeros))
+            suma_total = suma_n_numeros_dic(
+                **mi_diccionario) if lista_numeros else 0
+
+            print(
+                f"El resultado de sumar n = {mi_diccionario} es  = {suma_total} ")
         elif opcion == 'S' or opcion == 's':
             caracter = input("Estas seguro de salir del programa : y/n \n")
             if caracter == 'y' or caracter == 'Y':
