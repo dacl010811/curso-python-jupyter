@@ -120,10 +120,12 @@ def menu():
         if opcion == '4':
 
             entrada_usuario = input(" Ingresa los valores separados por una coma \n") 
+
+            #Dada la cadena que ingreso el usuario por teclado, extraer los numeros: Lista (str)
             lista_numeros = obtener_lista_numeros(entrada_usuario)
            
-            # Convertir las cadenas de texto que representan los numeros a  enteros
-            numeros =  [ int(num) for num in lista_numeros ]
+            # Convertir las cadenas de texto que representan los numeros a  enteros : int
+            numeros =  [ int(num) for num in (obtener_lista_numeros(entrada_usuario)) ]
 
             #La invocacion a la funcion separar que  retorna 2 listas: pares e impares
             impares, pares = separar(numeros)
