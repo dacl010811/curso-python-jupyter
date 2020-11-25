@@ -61,7 +61,7 @@ def intermedio():
     pass
 
 
-def separar(l):
+def separar(lista_numeros):
     """Separar numeros pares e impares
     Args:
         l ([list]): Lista de numeros
@@ -69,8 +69,6 @@ def separar(l):
         [tupla(list)]: Retorna una tupla de listas
     """
    
-    lista_numeros = l
-
     lista_numeros_pares = []
     lista_numeros_impares = []
     lista_numeros.sort()
