@@ -17,6 +17,7 @@ def obtener_lista_numeros(cadena):
 
     return lista_numeros if lista_numeros else []
 
+
 def relacion(num1, num2):
     """[summary]
     Args:
@@ -68,7 +69,7 @@ def separar(lista_numeros):
     Returns:
         [tupla(list)]: Retorna una tupla de listas
     """
-   
+
     lista_numeros_pares = []
     lista_numeros_impares = []
     lista_numeros.sort()
@@ -82,6 +83,24 @@ def separar(lista_numeros):
     return lista_numeros_impares, lista_numeros_pares
 
 
+def calcula_factorial(numero):
+    # f (5) =  1 * 2 * 3 * 4 *5
+    """Factorial de un numero
+    Args:
+        numero (float): Numero del cual se genera el factorial : f(num)
+    Returns:
+        float: Retorna el factual del numero ingresado
+    """
+    fact = 1.0
+
+    if numero >= 1:
+        for e in range(1, numero+1):
+            fact *= e
+        return fact
+    else:
+        return 0
+
+
 def menu():
     """Presenta el menu principal de las operaciones matematicas.
     """
@@ -93,6 +112,7 @@ def menu():
         2.- Area del Circulo
         3.- Relacion
         4.- Separar
+        5.- Factorial
         S.- Salir 
         """)
         opcion = input("Seleccion la operacion a realizar \n")
@@ -108,7 +128,7 @@ def menu():
             radio = float(input("Ingresa la radio del circulo \n"))
             area = area_circulo(radio)
             print(
-                f" El area del circulo de :  {radio} es = {area:1.3f} ")
+                ' El area del circulo de :  {} es = {:3f} '.format(radio, round(area, 3)))
         if opcion == '3':
             numero_1 = float(input("Ingresa la primer numero \n"))
             numero_2 = float(input("Ingresa el segundo numero \n"))
@@ -119,20 +139,32 @@ def menu():
 
         if opcion == '4':
 
-            entrada_usuario = input(" Ingresa los valores separados por una coma \n") 
+            entrada_usuario = input(
+                " Ingresa los valores separados por una coma \n")
 
-            #Dada la cadena que ingreso el usuario por teclado, extraer los numeros: Lista (str)
+            # Dada la cadena que ingreso el usuario por teclado, extraer los numeros: Lista (str)
             lista_numeros = obtener_lista_numeros(entrada_usuario)
-           
-            # Convertir las cadenas de texto que representan los numeros a  enteros : int
-            numeros =  [ int(num) for num in (obtener_lista_numeros(entrada_usuario)) ]
 
-            #La invocacion a la funcion separar que  retorna 2 listas: pares e impares
+            # Convertir las cadenas de texto que representan los numeros a  enteros : int
+            numeros = [int(num)
+                       for num in (obtener_lista_numeros(entrada_usuario))]
+
+            # La invocacion a la funcion separar que  retorna 2 listas: pares e impares
             impares, pares = separar(numeros)
 
-            print("La lista de pares es igual : " , pares)
-            print("La lista de impares es igual : ",impares)
+            print("La lista de pares es igual : ", pares)
+            print("La lista de impares es igual : ", impares)
+
+        elif opcion == '5':
             
+            while True:
+                entrada_usuario = input("Ingresa el numero para calcular el factorial: \n")      
+                if len(entrada_usuario) > 0: 
+                    factorial = calcula_factorial(numero=int(entrada_usuario))
+                    break
+
+            print(f"El factorial del numero {entrada_usuario} es  = {factorial}")
+
         elif opcion.upper() == 'S':
             caracter = input("Estas seguro de salir del programa : y/n \n")
             if caracter.lower() == 'y':
