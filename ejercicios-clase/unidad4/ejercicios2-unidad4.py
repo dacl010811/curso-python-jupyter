@@ -1,3 +1,4 @@
+import math
 
 """
     Escribir una función que calcule el total de una factura tras aplicarle el IVA. 
@@ -21,12 +22,41 @@ def facturacion(total, iva=21):
     return total + total*iva/100 
 
 
+    """
+    Escribir una función que calcule el área de un círculo y otra que calcule el volumen de un cilindro usando la primera función
+    """
+
+    """  [2,3,45,5,n]
+         resultado : [2**2,3**2,45**2,5**2,n**2] 
+    """  
+    
+def  cuadrado(*args):
+    lista_cuadrados = []
+    if args:
+        for numero in args:
+            print("N:",numero)
+            lista_cuadrados.append(numero**2)
+    return lista_cuadrados
+
+
+def teclado():
+    lista_numeros = []
+    contador = 0
+    while True: 
+       numero = input ("Ingresa  el numero [{0}]: \n".format(contador))
+       lista_numeros.append(int(numero))
+       contador +=1
+       if contador == 10:
+           respuesta = input ("Desea continuar ingresando mas datos, y/n")
+           if respuesta.upper() == 'N':
+               break
+    
+    return  lista_numeros 
+
 
 if __name__ == "__main__":
-    total_factura = facturacion(1000)
-    print ("El valor total 1  es = ",total_factura)
-
-    total_factura = facturacion(1000,10)  # Invocacion de la funcion modificando el iva  respecto al valor por defecto
-    print ("El valor total 2 es = ",total_factura)
+   
+    resultado_lista = cuadrado(*teclado())
+    print(" La lista de cuadrados es = {0}".format(resultado_lista))
 
 
