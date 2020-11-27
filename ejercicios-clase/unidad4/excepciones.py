@@ -92,7 +92,7 @@ if __name__ == "__main__":
     agregar_una_vez(lista,12)
     print(lista)"""
 
-    index = 200
+    index = 1
     dato, existe = verifica_elemento_lista(*lista,indice=index)
     print(f"El dato con el indice = {index} es = {dato} ") if existe != 0 else print(
         "Lo sentimos no existe el elemento")
