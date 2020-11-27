@@ -43,13 +43,17 @@ def teclado():
     lista_numeros = []
     contador = 0
     while True: 
-       numero = input ("Ingresa  el numero [{0}]: \n".format(contador))
-       lista_numeros.append(int(numero))
-       contador +=1
-       if contador == 10:
-           respuesta = input ("Desea continuar ingresando mas datos, y/n")
-           if respuesta.upper() == 'N':
-               break
+        try: 
+            numero = input ("Ingresa  el numero [{0}]: \n".format(contador))
+            lista_numeros.append(int(numero))
+            contador +=1
+            respuesta = input ("Desea continuar ingresando mas datos, y/n \n")
+            if respuesta.upper() == 'N':
+                    break
+        except ValueError as ve:
+            print("Error ValueError Controlado :",ve.__class__)
+        except Exception as e:
+            print("EL error encontrado es : ", e.__class__)        
     
     return  lista_numeros 
 
