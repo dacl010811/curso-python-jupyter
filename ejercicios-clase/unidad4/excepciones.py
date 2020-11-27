@@ -42,11 +42,9 @@ def verifica_elemento_lista(*args, indice=0):
         print(f" [{type(ie)}]: El elemento con el indice: {indice} no existe en la lista.")
     except Exception as e:
         print(f"Excepcion general del programa", e.__class__)
-    else:
-        print(f"Elemento encontrado: {dato} con indice : {indice} ")
-
+    
     return dato, existe
-
+    
 
 def diccionario():
 
@@ -94,7 +92,7 @@ if __name__ == "__main__":
     agregar_una_vez(lista,12)
     print(lista)"""
 
-    index = 2
-    dato, existe = verifica_elemento_lista(*lista, indice=index)
+    index = 200
+    dato, existe = verifica_elemento_lista(*lista,indice=index)
     print(f"El dato con el indice = {index} es = {dato} ") if existe != 0 else print(
         "Lo sentimos no existe el elemento")
