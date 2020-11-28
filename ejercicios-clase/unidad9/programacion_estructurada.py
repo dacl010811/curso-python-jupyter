@@ -1,6 +1,6 @@
 # Definimos unos cuantos clientes
 clientes = [
-    {'Nombre': 'Hector', 'Apellidos': 'Costa Guzman', 'dni': '11111111A'},
+    {'Nombre': 'Hector', 'Apellidos': 'Costa Guzman', 'dni': '1900474097'},
     {'Nombre': 'Juan', 'Apellidos': 'González Márquez', 'dni': '22222222B'}
 ]
 
