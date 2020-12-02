@@ -2,6 +2,9 @@
 class Pelicula:
     
     # Constructor de clase
+ 
+    __propiedad_intelectual = "CopyRight"
+
     def __init__(self, titulo, duracion, lanzamiento):  # Definicion del constructor
         self.titulo = titulo
         self.duracion = duracion
@@ -17,6 +20,11 @@ class Pelicula:
     
     def __len__(self):
         return self.duracion
+
+    def __calificar_pelicula(self):
+        pass
+
+    
     
 
 class Catalogo:
