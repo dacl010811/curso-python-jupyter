@@ -1,5 +1,7 @@
 
 class Biblioteca():
+
+
     lectores = []    # Atributo de clase
    
     def __init__(self, direccion, recepcion, nombre):
@@ -15,6 +17,10 @@ class Biblioteca():
     def __del__(self):
         print("del")
         print("Va a eliminar el objeto de la memoria : {}".format(self.nombre))
+
+    def obtener_lectores(self):
+        self.lectores = ['Eugenio Espejo','Bolivar']
+
 
 
 class Lector:
@@ -51,7 +57,10 @@ class Autor:
 if __name__ == "__main__":
 
     biblioteca = Biblioteca("Quito", "Python", "Municipal")
+    biblioteca.obtener_lectores()
+    print("Lectores",biblioteca.lectores)
     print(biblioteca)
 
     biblioteca1 = Biblioteca("GYE", "HOla", "Municipal Gye")
+    print("Lectores",biblioteca1.lectores)
     print(biblioteca1)
