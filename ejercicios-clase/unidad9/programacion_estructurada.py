@@ -6,7 +6,6 @@ clientes = [
 
 # Creamos una función que muestra un cliente en una lista a partir del DNI
 
-
 def mostrar_cliente(clientes, dni):
     for c in clientes:
         if (dni == c['dni']):
