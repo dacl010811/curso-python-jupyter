@@ -1,18 +1,19 @@
 class Persona():
 
-    def __init__(self, nombre, apellido, cedula, **kwargs):
+    def __init__(self, nombre, apellido, cedula):
+        """Construye un onjeto de tipo {type(self)}.\n
+
+        Args:
+            nombre (str): Nombre empleado.\n
+            apellido (str): Apellido empleado.\n
+            cedula (str): Cedula empleado.\n
+        """
         self.nombre = nombre
         self.apellido = apellido
         self.cedula = cedula
-        super().__init__(**kwargs)
-
 
     def __str__(self):
-        return (f""" 
-         Nombre : {self.nombre}\n
-         Apellido : {self.nombre}\n 
-         Cedula : {self.cedula}\n    
-        """)
+        return (f"Objeto Tipo: {type(self)}]:\nNombre:{self.nombre}, Apellido:{self.apellido}, Cedula: {self.cedula}")
 
 
 class Empleado(Persona):
@@ -30,12 +31,16 @@ class Empleado(Persona):
     def servicio(self):
         return (f"Tengo  años de servicio en : {self.institucion}")
 
+    def __str__(self):
+        super_clase = super().__str__()
+        return (f"{super_clase}, Institucion:{self.institucion}, Tiempo_Servicio:{self.tiempo}")
+
 
 if __name__ == "__main__":
-    empleado = Empleado("SRI", 10 ,nombre="Darwin",
-                        apellido="Calle", cedula="1104028566")
-    print(empleado.nombre)
-    print(empleado.apellido)
-    print(empleado.cedula)
-    print(empleado.institucion)
-    print(empleado.tiempo)
+
+    persona = Persona("Jose", "Marquez", "1900345678")
+    print(persona)
+
+    empleado = Empleado(nombre="Darwin",
+                        apellido="Calle", cedula="1104028566", institucion="SRI", tiempo=10)
+    print(empleado)
