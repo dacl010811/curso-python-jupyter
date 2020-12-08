@@ -125,11 +125,81 @@ def insertar_multiple_registros_unique(nombre_table):
         conexion.close()
 
 
+def consulta_intermedia_basica(CI):
+    conexion = sqlite3.connect("miprimerabdd.db")
+    cursor = conexion.cursor()
+
+    sql = "SELECT * FROM empleado_unique where CI='{0}'".format(CI)
+
+    cursor.execute(sql)
+
+    lista = cursor.fetchall()
+
+    if lista:
+        for i, v in enumerate(lista):
+            print(f"[{i+1}]:[{v}]")
+    else:
+        print(f"No hay registros para es  CI {CI}")
+
+    conexion.commit()
+    conexion.close()
+
+
+def actualizar_registro(email, ci):
+
+    conexion = sqlite3.connect("miprimerabdd.db")
+    cursor = conexion.cursor()
+
+    sql = "UPDATE empleado_unique  SET EMAIL='{1}'  where CI='{0}'".format(
+        ci, email)
+    cursor.execute(sql)
+    conexion.commit()
+
+    sql_select = "SELECT * FROM empleado_unique where CI='{0}'".format(ci)
+    cursor.execute(sql_select)
+
+    lista = cursor.fetchall()
+
+    if lista:
+        for i, v in enumerate(lista):
+            print(f"[{i+1}]:[{v}]")
+    else:
+        print(f"No hay registros para es  CI {ci}")
+
+    conexion.close()
+
+
+def eliminar_registro(ci):
+
+    conexion = sqlite3.connect("miprimerabdd.db")
+    cursor = conexion.cursor()
+
+    sql = "DELETE from empleado_unique  where CI='{0}'".format(ci)
+    cursor.execute(sql)
+    conexion.commit()
+
+    sql_select = "SELECT * FROM empleado_unique where CI='{0}'".format(ci)
+    cursor.execute(sql_select)
+
+    lista = cursor.fetchall()
+
+    if lista:
+        for i, v in enumerate(lista):
+            print(f"[{i+1}]:[{v}]")
+    else:
+        print(f"No hay registros para es  CI {ci}")
+
+    conexion.close()
+
+
 if __name__ == "__main__":
     # crear_tabla_pk('empleado')
     # insertar_multiple_registros('empleado')
     # crear_tabla_auto_pk('empleado_auto')
     # insertar_multiple_registros_auto('empleado_auto')
     # crear_tabla_auto_pk_unique('empleado_unique')
+    # insertar_multiple_registros_unique('empleado_unique')
 
-    insertar_multiple_registros_unique('empleado_unique')
+    # consulta_intermedia_basica('1104028511')
+    #actualizar_registro('N/A', '110402851212')
+    eliminar_registro('1104028512')
