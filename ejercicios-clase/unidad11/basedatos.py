@@ -63,9 +63,28 @@ def insertar_multiple_registros():
     conexion.close()
 
 
+def seleccionar_registros_all(nombre_tabla):
+    conexion = sqlite3.connect("miprimerabdd.db")
+    cursor = conexion.cursor()
+
+    dml = "SELECT * from {0}".format(nombre_tabla)
+    cursor.execute(dml)
+    print(cursor)
+
+    alumnos = cursor.fetchall()
+    print(type(alumnos))
+
+    for i, alumno in enumerate(alumnos):
+        print(f"[{i+1}]:[{alumno}]")
+
+    conexion.close()
+
+
 if __name__ == "__main__":
     crear_base_de_datos()
     # crear_tabla_bdd("alumnos")
-    insertar_registros_bdd()
-    seleccionar_registros('alumnos')
-    insertar_multiple_registros()
+    # insertar_registros_bdd()
+    # seleccionar_registros('alumnos')
+    # insertar_multiple_registros()
+
+    seleccionar_registros_all('alumnos')
