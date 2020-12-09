@@ -2,6 +2,10 @@ from tkinter import *
 from tkinter import filedialog as FileDialog
 from io import open
 
+
+"""Editor de Textos finalizado
+"""
+
 ruta = ""  # La utilizaremos para almacenar la ruta del fichero
 
 
@@ -63,7 +67,7 @@ def guardar_como():
 
 # Configuración de la raíz
 root = Tk()
-root.title("Mi editor")
+root.title("Mi BLock Notas - python")
 
 # Menú superior
 menubar = Menu(root)
