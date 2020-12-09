@@ -20,5 +20,10 @@ filemenu.add_command(label="Salir", command="")
 
 menubar_principal.add_cascade(menu=filemenu, label="Archivo")
 
+text_area = Text(root)
+text_area.pack(fill="both", expand=1)
+text_area.config(bd=0, padx=10, pady=10, font=("Verdana", 50))
+
+
 root.config(menu=menubar_principal)
 root.mainloop()  # Metodo que hace visible la ventana
