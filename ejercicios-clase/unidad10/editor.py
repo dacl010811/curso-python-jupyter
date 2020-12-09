@@ -2,10 +2,9 @@ from tkinter import *
 from tkinter import filedialog as FileDialog
 from io import open
 
-
 ruta = ""
 
-
+#Abrir
 def abrir_archivo():
     global ruta
     ruta = FileDialog.askopenfilename(initialdir='.', filetypes=(
