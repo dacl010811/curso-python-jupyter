@@ -1,4 +1,23 @@
 from tkinter import *
+from tkinter import filedialog as FileDialog
+from io import open
+
+
+ruta = ""
+
+
+def abrir_archivo():
+    global ruta
+    ruta = FileDialog.askopenfilename(initialdir='.', filetypes=(
+        ("Ficheros de Texto", "*.py")), title="Abrir archivos python")
+
+    if ruta != "":
+        fichero = open(ruta, 'r')
+        contenido = fichero.read()
+        text_area.delete(1.0, 'end')
+        text_area.insert('insert', contenido)
+        fichero.close()
+        root.title(ruta + " - Mi Editor")
 
 
 def saludo_evento():
@@ -12,7 +31,7 @@ root.iconbitmap('icono.ico')
 menubar_principal = Menu(root)
 filemenu = Menu(menubar_principal, tearoff=0)
 filemenu.add_command(label="Nuevo", command="")
-filemenu.add_command(label="Abrir", command="")
+filemenu.add_command(label="Abrir", command=abrir_archivo)
 filemenu.add_command(label="Guardar", command="")
 filemenu.add_command(label="Guardar Como", command="")
 filemenu.add_separator()
