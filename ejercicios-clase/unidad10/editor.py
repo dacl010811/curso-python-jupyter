@@ -18,7 +18,7 @@ def abrir():
     mensaje.set("Abrir fichero")
     ruta = FileDialog.askopenfilename(
         initialdir='.',
-        filetypes=(("Ficheros de texto", "*.txt"),),
+        filetypes=(("Ficheros de texto", "*.py"),),
         title="Abrir un fichero de texto")
 
     if ruta != "":
